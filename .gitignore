@@ -5,3 +5,7 @@
 bin/
 *.class
 .project
+.idea
+gradle/
+gradlew
+gradlew.bat
