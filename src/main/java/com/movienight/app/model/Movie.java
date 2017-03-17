@@ -43,7 +43,7 @@ public class Movie {
 
 	@JsonProperty("Plot")
 	private String plot;
-	
+
 	@JsonProperty("Response")
 	@Transient
 	private String response;
@@ -135,5 +135,4 @@ public class Movie {
 				+ "]";
 	}
 
-	
 }

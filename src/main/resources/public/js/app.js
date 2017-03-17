@@ -1,20 +1,32 @@
 angular.module("movieApp",[])
-	.controller("HomeCtrl",["$http",function($http){
+	.controller("MovieCtrl",["$http",function($http){
 		var self = this;
-//		$http.get("/movie").then(function(response){
-//			self.movie = response.data;
-//		});
-//		
 		
-		self.searchMovie = function(){
+		self.searchMovies = function(){
 			console.log(self.searchTitle);
 			
-			$http.get("/movie/"+self.searchTitle).then(function(response){
-					self.movie = response.data;
+			$http.get("/movies/"+self.searchTitle).then(function(response){
+					console.log(response);
+					console.log(response.data);
+					self.movies = response.data;
 					self.searchMessage = "";
 			}, function(error){
-				self.searchMessage = "No movie found";
-				self.movie = {};
+				self.searchMessage = "No movies found";
+				self.movies = {};
 			});
 		};
+		
+//		self.searchMovie = function(){
+//			console.log(self.searchTitle);
+//			
+//			$http.get("/movies/"+self.searchTitle).then(function(response){
+//					self.movie = response.data;
+//					self.searchMessage = "";
+//			}, function(error){
+//				self.searchMessage = "No movie found";
+//				self.movie = {};
+//			});
+//		};
+		
+	
 	}]);

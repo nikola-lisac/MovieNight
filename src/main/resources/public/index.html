@@ -10,22 +10,22 @@
 <body ng-app="movieApp">
 
 
-	<div ng-controller="HomeCtrl as ctrl">
-		<form id="searchForm" ng-submit="ctrl.searchMovie()">
+	<div ng-controller="MovieCtrl as ctrl">
+		<form id="searchForm" ng-submit="ctrl.searchMovies()">
 			<input type="text" ng-model="ctrl.searchTitle">
 			<input type="submit" value="search">
 		</form>
-    
-      <div>
+		
+      <div ng-repeat="movie in ctrl.movies">
       	<p ng-bind="ctrl.searchMessage"></p>
-      	<h2 ng-bind="ctrl.movie.Title"></h2>
-        <p ng-bind="ctrl.movie.Year"></p>
-        <p ng-bind="ctrl.movie.Director"></p>
-        <p ng-bind="ctrl.movie.Actors"></p>
-        <p ng-bind="ctrl.movie.imdbRating"></p>
-        <p ng-bind="ctrl.movie.imdbID"></p>
-        <p ng-bind="ctrl.movie.Plot"></p>
-        <img ng-src="{{ctrl.movie.Poster}}">
+      	<h2 ng-bind="movie.Title"></h2>
+        <p ng-bind="movie.Year"></p>
+        <p ng-bind="movie.Director"></p>
+        <p ng-bind="movie.Actors"></p>
+        <p ng-bind="movie.imdbRating"></p>
+        <p ng-bind="movie.imdbID"></p>
+        <p ng-bind="movie.Plot"></p>
+        <img ng-src="{{movie.Poster}}">
       </div>
      
     </div>
