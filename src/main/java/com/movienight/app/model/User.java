@@ -27,7 +27,7 @@ public class User {
 	
 	private String password;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "user")
 	private List<Suggestion> suggestions = new ArrayList<>();
 
 	public Long getId() {
