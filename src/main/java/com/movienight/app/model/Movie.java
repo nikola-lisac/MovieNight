@@ -5,31 +5,48 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Movie {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
+	@JsonProperty("Title")
 	private String title;
 
+	@JsonProperty("Year")
 	private String year;
 
+	@JsonProperty("Director")
 	private String director;
 
+	@JsonProperty("Actors")
 	private String actors;
 
+	@JsonProperty("imdbRating")
 	@Column(name = "imdb_rating")
 	private String imdbRating;
 
+	@JsonProperty("imdbID")
 	@Column(name = "imdb_id")
 	private String imdbId;
 
+	@JsonProperty("Poster")
 	private String poster;
 
+	@JsonProperty("Plot")
 	private String plot;
+	
+	@JsonProperty("Response")
+	@Transient
+	private String response;
 
 	public Long getId() {
 		return id;
@@ -103,4 +120,20 @@ public class Movie {
 		this.plot = plot;
 	}
 
+	public String getResponse() {
+		return response;
+	}
+
+	public void setResponse(String response) {
+		this.response = response;
+	}
+
+	@Override
+	public String toString() {
+		return "Movie [id=" + id + ", title=" + title + ", year=" + year + ", director=" + director + ", actors="
+				+ actors + ", imdbRating=" + imdbRating + ", imdbId=" + imdbId + ", poster=" + poster + ", plot=" + plot
+				+ "]";
+	}
+
+	
 }
