@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class User {
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -78,7 +79,12 @@ public class User {
 		this.suggestions = suggestions;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", username=" + username
+				+ ", password=" + password + ", suggestions=" + suggestions + "]";
+	}
+
 	
 	
 }

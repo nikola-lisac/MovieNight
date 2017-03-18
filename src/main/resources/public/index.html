@@ -1,46 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
 <head>
-<title>Movie Night</title>
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	rel="stylesheet">
+    <title>Movie Night</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body ng-app="movieApp">
 
 
-	<div ng-controller="MovieCtrl as ctrl">
-		<form id="searchForm" ng-submit="ctrl.searchMovies()">
-			<input type="text" ng-model="ctrl.searchTitle">
-			<input type="submit" value="search">
-		</form>
-		
-      <div ng-repeat="movie in ctrl.movies">
-      	<p ng-bind="ctrl.searchMessage"></p>
-      	<h2 ng-bind="movie.Title"></h2>
-        <p ng-bind="movie.Year"></p>
-        <p ng-bind="movie.Director"></p>
-        <p ng-bind="movie.Actors"></p>
-        <p ng-bind="movie.imdbRating"></p>
-        <p ng-bind="movie.imdbID"></p>
-        <p ng-bind="movie.Plot"></p>
-        <img ng-src="{{movie.Poster}}">
-      </div>
-     
+    <div ng-controller="MovieCtrl as ctrl">
+        <form id="searchForm" ng-submit="ctrl.searchMovies()">
+            <input type="text" ng-model="ctrl.searchTitle">
+            <input type="submit" value="search">
+        </form>
+
+        <div ng-repeat="movie in ctrl.movies">
+            <p ng-bind="ctrl.searchMessage"></p>
+            <h2 ng-bind="movie.Title"></h2>
+            <p ng-bind="movie.Year"></p>
+            <p ng-bind="movie.Director"></p>
+            <p ng-bind="movie.Actors"></p>
+            <p ng-bind="movie.imdbRating"></p>
+            <p ng-bind="movie.imdbID"></p>
+            <p ng-bind="movie.Plot"></p>
+            <img ng-src="{{movie.Poster}}">
+        </div>
+
     </div>
 
-	
-	
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"
-		type="text/javascript"></script>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"
-		type="text/javascript"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-route.min.js"
-		type="text/javascript"></script>
-	<script src="js/app.js"></script>
+    <div ng-controller="UserCtrl as userCtrl">
+        <form name="registerForm" ng-submit="userCtrl.register()">
+            <input type="text" ng-model="userCtrl.newuser.username">
+            <input type="text" ng-model="userCtrl.newuser.password">
+            <input type="text" ng-model="userCtrl.newuser.firstName">
+            <input type="text" ng-model="userCtrl.newuser.lastName">
+            <input type="submit" value="submit">
+        </form>
+        <div>
+            <h2 ng-bind="userCtrl.registerMessage"></h2>
+        </div>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-route.min.js" type="text/javascript"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controller/movie-controller.js"></script>
+    <script src="js/controller/register-controller.js"></script>
 </body>
+
 </html>
